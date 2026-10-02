@@ -25,7 +25,10 @@ public class PersonCard {
         double cost = 185000;
         boolean isAutomatic = true;
 
-        
+        System.out.println("Bilmärke: " + carBrand);
+        System.out.println("Modell år: " + modelYear);
+        System.out.println("Pris: " + cost);
+        System.out.println("Automat: " + isAutomatic);
     }
     
 }
