@@ -10,7 +10,9 @@ public class BugHunt { public static void main(String[] args) {
     System.out.println("Fruit: " + apples + bananas); 
     System.out.println("Name: " + name); 
     System.out.println(age == 25);
-
+    System.out.println("Height: " + height); 
+    System.out.println("Grade: " + grade); 
+    System.out.println("Likes Java: " + likesJava); 
 
     }
 }
