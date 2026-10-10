@@ -19,7 +19,7 @@ public class rollerCoaster {
         double heightMin = 110.0;
 
       // Check if the user meets the requirements to ride
-        if (age < ageRestriction) {
+        if (age <= ageRestriction) {
             System.out.println("You are too young to ride.");
         }
          else if (age > ageRestriction) {
