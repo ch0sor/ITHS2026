@@ -4,6 +4,24 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class FredagsMenyn {
+
+    public static void printRecipe(String recipeFileName) {
+        System.out.println(new File(recipeFileName).getAbsolutePath());
+        try {
+            File recipeFile = new File(recipeFileName);
+            Scanner fileInput = new Scanner(recipeFile);
+
+            while (fileInput.hasNextLine()) {
+                System.out.println(fileInput.nextLine());
+            }
+            fileInput.close();
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("Receptfilen hittades inte: " + recipeFileName);
+        }
+    }
+
+    
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -20,43 +38,29 @@ public class FredagsMenyn {
         
         switch (choice) {
             case "pizza":
-                System.out.println("Du har valt Pizza. Här kommer receptet:");
-                printRecipe("Pizza.txt"); // Call the printRecipe method with the corresponding recipe file
+                printRecipe(choice); /* 
                 break;
             case "hamburgare":
-                System.out.println("Du har valt Hamburgare. Här kommer receptet:");
+                recipeFileName = "Hamburgare.txt";
                 break;
             case "sushi":
-                System.out.println("Du har valt Sushi. Här kommer receptet:");
+                recipeFileName = "Sushi.txt";
                 break;
             case "tacos":
-                System.out.println("Du har valt Tacos. Här kommer receptet:");
+                recipeFileName = "Tacos.txt";
                 break;
             case "pasta": 
-                System.out.println("Du har valt Pasta. Här kommer receptet:");
+                recipeFileName = "Pasta.txt";
                 break;
 
             default:
-                System.out.println("Tyvärr, vi har inte det alternativet på menyn.");
+                System.out.println("Tyvärr, vi har inte det alternativet. Vänligen välj en maträtt från listan.");
                 break;
-        }
+        }  */
 
         input.close();
     }
 
-    public static void printRecipe(String recipeFileName) {
-        try {
-            File recipeFile = new File(recipeFileName);
-            Scanner fileInput = new Scanner(recipeFile);
-
-            while (fileInput.hasNextLine()) {
-                System.out.println(fileInput.nextLine());
-            }
-            fileInput.close();
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Receptfilen hittades inte: " + recipeFileName);
-        }
-    }
+}
 
 }
