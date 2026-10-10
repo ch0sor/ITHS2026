@@ -5,23 +5,6 @@ import java.io.FileNotFoundException;
 
 public class FredagsMenyn {
 
-    public static void printRecipe(String recipeFileName) {
-        System.out.println(new File(recipeFileName).getAbsolutePath());
-        try {
-            File recipeFile = new File(recipeFileName);
-            Scanner fileInput = new Scanner(recipeFile);
-
-            while (fileInput.hasNextLine()) {
-                System.out.println(fileInput.nextLine());
-            }
-            fileInput.close();
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("Receptfilen hittades inte: " + recipeFileName);
-        }
-    }
-
-    
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
@@ -38,29 +21,52 @@ public class FredagsMenyn {
         
         switch (choice) {
             case "pizza":
-                printRecipe(choice); /* 
+                printRecipe(choice + ".txt"); 
+                choice = "pizza";
                 break;
             case "hamburgare":
-                recipeFileName = "Hamburgare.txt";
+                printRecipe(choice + ".txt"); 
+                choice = "hamburgare";
                 break;
             case "sushi":
-                recipeFileName = "Sushi.txt";
+                printRecipe(choice + ".txt"); 
+                choice = "sushi";
                 break;
             case "tacos":
-                recipeFileName = "Tacos.txt";
+                printRecipe(choice + ".txt"); 
+                choice = "tacos";
                 break;
             case "pasta": 
-                recipeFileName = "Pasta.txt";
+                printRecipe(choice + ".txt"); 
+                choice = "pasta";
                 break;
 
             default:
                 System.out.println("Tyvärr, vi har inte det alternativet. Vänligen välj en maträtt från listan.");
                 break;
-        }  */
+        }  
 
         input.close();
     }
 
-}
+     public static void printRecipe(String recipeFileName) {
+        System.out.println("Här är receptet för ditt val:");
+        try {
+            File recipeFile = new File(recipeFileName);
+            Scanner fileInput = new Scanner(recipeFile);
+
+            while (fileInput.hasNextLine()) {
+                System.out.println(fileInput.nextLine());
+            }
+            fileInput.close(); // Close the file scanner after reading
+        }
+        catch (FileNotFoundException e) { // Handle the case where the recipe file is not found
+            System.out.println("Receptfilen hittades inte: " + recipeFileName);
+        }
+
+    }
+
 
 }
+
+
